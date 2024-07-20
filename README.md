@@ -110,15 +110,35 @@ Variable para especificar un puerto para el backend, por defecto es 4000.
 
 Ejemplo: `PORT="4000"`
 
+### DB_HOST
+
+Variable para el host de la base de datos.
+
+Ejemplo: `DB_HOST="localhost"`
+
+### DB_PORT
+
+Variable para el puerto de la base de datos.
+
+Ejemplo: `DB_PORT="3306"`
+
+### DB_DATABASE
+
+Variable para el nombre de la base de datos.
+
+Ejemplo: `DB_DATABASE="housetrav"`
+
+### DB_USER
+
+Variable para el nombre del usuario de la base de datos.
+
+Ejemplo: `DB_USER="root"`
+
 ### DB_PWD
 
 Variable para la contraseña de la base de datos.
 
 Ejemplo: `DB_PWD="1234"`
-
-Se debe tener acceso a una base de datos en local o en internet.
-
-Configurar el resto del acceso a la base de datos en el archivo `src/config/db.js`
 
 ### JWT_KEY
 
