@@ -1,0 +1,52 @@
+{
+  "name": "housetrav-backend",
+  "description": "La parte backend del portal inmobiliario",
+  "main": "src/index.js",
+  "author": "JaamDev",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "lint": "eslint --fix . --ext .js",
+    "prettier": "prettier --write .",
+    "lintear": "npm run lint && npm run prettier"
+  },
+  "imports": {
+    "#Config/*": "./src/config/*",
+    "#Controllers/*": "./src/controllers/*",
+    "#Middlewares/*": "./src/middlewares/*",
+    "#Models/*": "./src/models/*",
+    "#Routes/*": "./src/routes/*",
+    "#Schemas/*": "./src/schemas/*",
+    "#Utils/*": "./src/utils/*"
+  },
+  "dependencies": {
+    "bcrypt": "5.1.1",
+    "cookie-parser": "1.4.6",
+    "cors": "2.8.5",
+    "dotenv": "16.4.5",
+    "express": "4.19.2",
+    "jose": "5.3.0",
+    "multer": "1.4.5-lts.1",
+    "mysql2": "3.10.1",
+    "sharp": "0.33.4",
+    "valibot": "0.30.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "5.0.2",
+    "@types/cookie-parser": "1.4.7",
+    "@types/cors": "2.8.17",
+    "@types/express": "4.17.21",
+    "@types/multer": "1.4.11",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-config-standard": "17.1.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-n": "16.6.2",
+    "eslint-plugin-promise": "6.1.1",
+    "prettier": "3.2.5"
+  }
+}
