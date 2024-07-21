@@ -43,6 +43,6 @@ const removeTmp = () => {
 
 removeTmp();
 
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor listo en http://localhost:${PORT}`);
 });

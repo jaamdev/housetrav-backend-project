@@ -110,35 +110,11 @@ Variable para especificar un puerto para el backend, por defecto es 4000.
 
 Ejemplo: `PORT="4000"`
 
-### DB_HOST
+### DB_URI
 
-Variable para el host de la base de datos.
+Variable para la conexión con la base de datos
 
-Ejemplo: `DB_HOST="localhost"`
-
-### DB_PORT
-
-Variable para el puerto de la base de datos.
-
-Ejemplo: `DB_PORT="3306"`
-
-### DB_DATABASE
-
-Variable para el nombre de la base de datos.
-
-Ejemplo: `DB_DATABASE="housetrav"`
-
-### DB_USER
-
-Variable para el nombre del usuario de la base de datos.
-
-Ejemplo: `DB_USER="root"`
-
-### DB_PWD
-
-Variable para la contraseña de la base de datos.
-
-Ejemplo: `DB_PWD="1234"`
+Ejemplo: `DB_URI="mysql://root:12345@localhost:3306/housetrav"`
 
 ### JWT_KEY
 
