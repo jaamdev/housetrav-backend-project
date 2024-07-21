@@ -4,7 +4,7 @@ El backend del portal inmobiliario.
 
 Para la parte frontend clic [aquí](https://github.com/jaamdev/housetrav-frontend-project).
 
-[![Despliegue](https://img.shields.io/static/v1?label=&message=ver%20sitio&color=00A50C&style=for-the-badge)](https://housetrav-frontend-project.vercel.app)
+[![Despliegue](https://img.shields.io/static/v1?label=&message=ver%20sitio&color=00A50C&style=for-the-badge)](https://housetrav-backend-project-production.up.railway.app/)
 [![Repo en Github](https://img.shields.io/static/v1?label=&message=repo%20github&color=000000&style=for-the-badge&logo=github&logoColor=white)](https://github.com/jaamdev/housetrav-backend-project)
 
 ## Tecnologías usadas
