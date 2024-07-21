@@ -4,7 +4,7 @@ export default class PortalModel {
   static getAll = async () => {
     try {
       const [result] = await connection.query(
-        'SELECT BIN_TO_UUID(id) AS id, visible, title, address, region, country, property_hide_address AS propertyHideAddress, rent_price AS rentPrice, sell_price AS sellPrice, rooms, baths, property_size AS propertySize, property_type AS propertyType, conditions_specials AS conditionsSpecials FROM properties WHERE visible = true ORDER BY created_at DESC LIMIT 10;',
+        'SELECT BIN_TO_UUID(id) AS id, visible, title, address, region, country, property_hide_address AS propertyHideAddress, rent_price AS rentPrice, sell_price AS sellPrice, rooms, baths, property_size AS propertySize, property_size_terrain AS propertySizeTerrain, property_type AS propertyType, conditions_specials AS conditionsSpecials FROM properties WHERE visible = true ORDER BY created_at DESC LIMIT 10;',
       );
       return result;
     } catch (error) {
