@@ -11,6 +11,7 @@ import createRouteUploads from '#Routes/uploads.js';
 import createRouteProperties from '#Routes/properties.js';
 
 const PORT = process.env.PORT ?? 4000;
+const FRONT = process.env.FRONT ?? 'http://localhost:5173';
 const server = express();
 
 server.disable('x-powered-by');
@@ -23,6 +24,7 @@ server.use('/user', createRouteUsers());
 server.use('/portal', createRoutePortal());
 server.use('/upload', createRouteUploads());
 server.use('/properties', createRouteProperties());
+server.all('*', (_, res) => res.redirect(FRONT));
 
 // Función temporal para eliminar la carpeta de imágenes temporales
 const removeTmp = () => {
