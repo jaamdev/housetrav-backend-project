@@ -121,3 +121,91 @@ Ejemplo: `DB_URI="mysql://root:12345@localhost:3306/housetrav"`
 Variable para la generación de las cookies.
 
 Ejemplo: `JWT_KEY="P+!Rn]a=NI5_@#R6K-D']_}8~r9J^6;7t?{{icMG$t44+G$$NE"`
+
+## Preparar la base de datos
+
+El proyecto fue creado para una base de datos MySQL.
+
+Son necesarias tres tablas que pueden ser creadas mediante este código sql:
+
+```sql
+-- crear base de datos
+DROP DATABASE IF EXISTS housetrav;
+CREATE DATABASE housetrav;
+
+-- usar base de datos
+USE housetrav;
+
+-- nueva tabla users
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+	id BINARY(16) PRIMARY KEY DEFAULT(UUID_TO_BIN(UUID())),
+	first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    country VARCHAR(255) NOT NULL,
+    postal VARCHAR(255) NOT NULL,
+    phone VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    moderator BOOLEAN NOT NULL DEFAULT(false),
+    created_at TIMESTAMP NOT NULL DEFAULT(NOW()),
+    updated_at TIMESTAMP NOT NULL DEFAULT(NOW()) ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- nueva tabla properties
+DROP TABLE IF EXISTS properties;
+
+CREATE TABLE properties (
+	id BINARY(16) PRIMARY KEY DEFAULT(UUID_TO_BIN(UUID())),
+    visible BOOLEAN NOT NULL DEFAULT(false),
+    title VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL DEFAULT(""),
+    conditions_specials VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    postal VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    country VARCHAR(255) NOT NULL,
+    region VARCHAR(255) NOT NULL,
+    property_hide_address BOOLEAN NOT NULL DEFAULT(false),
+    rent_sell VARCHAR(255) NOT NULL,
+    rent_price INT NOT NULL DEFAULT(0),
+    sell_price INT NOT NULL DEFAULT(0),
+    sell_price_arv INT NOT NULL DEFAULT(0),
+    optional_buy BOOLEAN NOT NULL DEFAULT(false),
+    rerent BOOLEAN NOT NULL DEFAULT(false),
+    joint_venture BOOLEAN NOT NULL DEFAULT(false),
+    optional_finance BOOLEAN NOT NULL DEFAULT(false),
+    finance_init_payment INT NOT NULL DEFAULT(0),
+    finance_years INT NOT NULL DEFAULT(0),
+    finance_interest INT NOT NULL DEFAULT(0),
+    month_payment INT NOT NULL DEFAULT(0),
+    property_type VARCHAR(255) NOT NULL,
+    property_condition VARCHAR(255) NOT NULL DEFAULT(""),
+    property_size INT NOT NULL DEFAULT(0),
+    property_size_terrain INT NOT NULL DEFAULT(0),
+    energy_certificate VARCHAR(255) NOT NULL DEFAULT(""),
+    elevator VARCHAR(255) NOT NULL DEFAULT(""),
+    furnished VARCHAR(255) NOT NULL DEFAULT(""),
+    parking VARCHAR(255) NOT NULL DEFAULT(""),
+    pool VARCHAR(255) NOT NULL DEFAULT(""),
+    rooms INT NOT NULL DEFAULT(0),
+    baths INT NOT NULL DEFAULT(0),
+    user_id BINARY(16) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    created_at TIMESTAMP NOT NULL DEFAULT(NOW()),
+    updated_at TIMESTAMP NOT NULL DEFAULT(NOW()) ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- nueva tabla property_images
+DROP TABLE IF EXISTS properties_images;
+
+CREATE TABLE properties_images (
+    property_id BINARY(16),
+    img_url VARCHAR(255),
+    PRIMARY KEY (property_id, img_url),
+    FOREIGN KEY (property_id) REFERENCES properties(id)
+);
+```
